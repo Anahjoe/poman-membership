@@ -71,7 +71,7 @@
         <p class="text-green-200">Check your email/WhatsApp for next steps.<br>You're now part of the authentic Nigeria movement.</p>
       </div>
 
-      <form id="form" class="space-y-6">
+      <form action="https://formspree.io/f/xzdwadjy" method="POST" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold mb-2">Full Name *</label>
@@ -113,6 +113,11 @@
           <input type="checkbox" id="terms" required class="mt-1 w-5 h-5 accent-blue-600">
           <label for="terms" class="text-sm text-slate-300">I agree to receive updates from #POMAN and support the movement for an Authentic Nigeria.</label>
         </div>
+
+       <!-- Hidden fields - So you get notification when someone joins -->
+        <input type="hidden" name="_subject" value="New #POMAN Member Joined!">
+        <input type="hidden" name="_next" value="https://Anahjoe.github.io/poman-membership">
+        <input type="hidden" name="_captcha" value="false">
 
         <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-3 transition-all">
           Join #POMAN Now <i class="fa-solid fa-heart"></i>
