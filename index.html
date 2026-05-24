@@ -1,146 +1,190 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join #POMAN - Peter Obi's Movement for an Authentic Nation</title>
+  <title>#POMAN - Join the Movement</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap');
-    h1, h2, h3, h4 { font-family: 'Georgia', serif; }
-    .tier-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-    .tier-card:hover { transform: translateY(-8px) scale(1.03); }
+    body {
+      background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+    }
+    .tier-card {
+      transition: all 0.3s ease;
+    }
+    .tier-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white min-h-screen">
+<body class="text-white min-h-screen">
 
-  <!-- Header -->
-  <div class="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 mb-16">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 blur-3xl"></div>
-    <div class="relative max-w-4xl mx-auto text-center">
-      <h1 class="text-6xl md:text-7xl font-bold mb-6">Join <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">#POMAN</span></h1>
-      <p class="text-2xl text-blue-200 mb-4">Peter Obi's Movement for an Authentic Nation</p>
-      <p class="text-lg text-slate-300 max-w-2xl mx-auto">
-        Not just a campaign. A movement for competent leadership, authentic governance, and real change.<br>
-        <span class="text-blue-300 font-semibold">Find your role. Make your impact. Build Nigeria.</span>
-      </p>
-    </div>
+  <!-- HEADER -->
+  <div class="max-w-7xl mx-auto px-4 py-20 text-center">
+    <h1 class="text-6xl font-bold mb-6">
+      Join <span class="text-blue-400">#POMAN</span>
+    </h1>
+    <p class="text-2xl text-blue-200 mb-4">
+      Peter Obi's Movement for an Authentic Nation
+    </p>
+    <p class="text-lg text-slate-300">Choose your role. Make your impact. Build Nigeria.</p>
   </div>
 
-  <!-- Movement Promise -->
-  <div class="max-w-6xl mx-auto px-4 mb-20">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="bg-slate-800/50 rounded-2xl p-6 border border-blue-500/20 text-center">
-        <div class="text-5xl mb-4 text-blue-400">✓</div>
-        <h3 class="font-bold text-xl mb-1">Authentic Change</h3>
-        <p class="text-slate-400">Real, measurable impact</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-2xl p-6 border border-blue-500/20 text-center">
-        <div class="text-5xl mb-4 text-blue-400">✓</div>
-        <h3 class="font-bold text-xl mb-1">Your Voice Matters</h3>
-        <p class="text-slate-400">Democratic decision-making</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-2xl p-6 border border-blue-500/20 text-center">
-        <div class="text-5xl mb-4 text-blue-400">✓</div>
-        <h3 class="font-bold text-xl mb-1">Community Power</h3>
-        <p class="text-slate-400">Together we transform</p>
-      </div>
-      <div class="bg-slate-800/50 rounded-2xl p-6 border border-blue-500/20 text-center">
-        <div class="text-5xl mb-4 text-blue-400">✓</div>
-        <h3 class="font-bold text-xl mb-1">Results Focused</h3>
-        <p class="text-slate-400">From words to work</p>
-      </div>
-    </div>
-  </div>
-
- <!-- Tiers -->
+  <!-- TIERS CONTAINER -->
   <div class="max-w-7xl mx-auto px-4 mb-20">
     <h2 class="text-4xl font-bold text-center mb-16">Choose Your Role</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="tiers"></div>
+    <div id="tiers" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
   </div>
 
-  <!-- Signup Form -->
-  <div id="signup-form" class="max-w-2xl mx-auto px-4 mb-20">
-    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl border border-blue-500/30 p-10">
-      <h2 class="text-3xl font-bold mb-2">Join the Movement</h2>
-      <p class="text-slate-400 mb-8">Tell us about yourself. We'll connect you with your #POMAN community.</p>
+  <!-- SELECTED TIER DISPLAY -->
+  <div id="selected-tier-display" class="hidden max-w-2xl mx-auto mb-6 bg-blue-500/20 border border-blue-500/50 rounded-lg p-4 text-center text-white"></div>
 
-      <div id="success" class="hidden text-center py-12">
-        <div class="text-6xl mb-6">🎉</div>
-        <h3 class="text-2xl font-bold text-green-400 mb-3">Welcome to #POMAN!</h3>
-        <p class="text-green-200">Check your email/WhatsApp for next steps.<br>You're now part of the authentic Nigeria movement.</p>
+  <!-- SIGNUP FORM SECTION -->
+  <div id="signup-form" class="max-w-2xl mx-auto px-4 mb-20">
+    <div class="bg-slate-800 rounded-xl border border-blue-500/30 p-10">
+      <h2 class="text-3xl font-bold mb-2">Join the Movement</h2>
+      <p class="text-slate-400 mb-8">Tell us about yourself.</p>
+
+      <!-- SUCCESS MESSAGE -->
+      <div id="success" class="hidden bg-green-500/20 border border-green-500/50 rounded-lg p-8 text-center mb-8">
+        <div class="text-5xl mb-4">✓</div>
+        <h3 class="text-2xl font-bold text-green-300 mb-2">Welcome to #POMAN!</h3>
+        <p class="text-green-200">Check your email. You're now part of the movement.</p>
       </div>
 
-      <form action="https://formspree.io/f/xzdwadjy" method="POST" class="space-y-6">
+      <!-- ERROR MESSAGE (HIDDEN BY DEFAULT) -->
+      <div id="error-message" class="hidden bg-red-500/20 border border-red-500/50 rounded-lg p-4 text-center mb-8 text-red-300"></div>
+
+      <!-- FORM - CONNECTED TO FORMSPREE -->
+      <form id="form" action="https://formspree.io/f/xzdwadjy" method="POST" class="space-y-6">
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- FULL NAME -->
           <div>
-            <label class="block text-sm font-semibold mb-2">Full Name *</label>
-            <input type="text" id="name" required class="w-full bg-slate-700 border border-slate-600 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+            <label class="block font-semibold mb-2">Full Name *</label>
+            <input 
+              type="text" 
+              name="full_name"
+              required 
+              class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+              placeholder="Your name" 
+            />
           </div>
+
+          <!-- EMAIL -->
           <div>
-            <label class="block text-sm font-semibold mb-2">Email *</label>
-            <input type="email" id="email" required class="w-full bg-slate-700 border border-slate-600 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+            <label class="block font-semibold mb-2">Email *</label>
+            <input 
+              type="email" 
+              name="email"
+              required 
+              class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+              placeholder="your@email.com" 
+            />
           </div>
+
+          <!-- PHONE -->
           <div>
-            <label class="block text-sm font-semibold mb-2">Phone Number *</label>
-            <input type="tel" id="phone" required placeholder="+234" class="w-full bg-slate-700 border border-slate-600 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+            <label class="block font-semibold mb-2">Phone *</label>
+            <input 
+              type="tel" 
+              name="phone"
+              required 
+              class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+              placeholder="+234..." 
+            />
           </div>
+
+          <!-- STATE -->
           <div>
-            <label class="block text-sm font-semibold mb-2">State *</label>
-            <input type="text" id="state" required class="w-full bg-slate-700 border border-slate-600 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
+            <label class="block font-semibold mb-2">State *</label>
+            <input 
+              type="text" 
+              name="state"
+              required 
+              class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+              placeholder="Your state" 
+            />
           </div>
         </div>
 
+        <!-- INTERESTS -->
         <div>
-          <label class="block text-sm font-semibold mb-3">What interests you most? *</label>
-          <select id="interest" required class="w-full bg-slate-700 border border-slate-600 rounded-xl px-5 py-4 focus:outline-none focus:border-blue-500">
-            <option value="">Select an area...</option>
-            <option>Leadership Development</option>
-            <option>Policy & Governance</option>
-            <option>Community Organizing</option>
-            <option>Digital Marketing</option>
-            <option>Content Creation</option>
-            <option>Youth Empowerment</option>
-            <option>Research & Data</option>
-            <option>Fundraising</option>
-            <option>Other</option>
+          <label class="block font-semibold mb-3">What interests you? *</label>
+          <select 
+            name="interest"
+            required 
+            class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+            <option value="">Select an interest...</option>
+            <option value="Leadership Development">Leadership Development</option>
+            <option value="Policy & Governance">Policy & Governance</option>
+            <option value="Community Organizing">Community Organizing</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Content Creation">Content Creation</option>
+            <option value="Youth Empowerment">Youth Empowerment</option>
+            <option value="Research & Data">Research & Data</option>
+            <option value="Fundraising">Fundraising</option>
           </select>
         </div>
 
-        <div id="selected-tier-display" class="hidden bg-blue-500/10 border border-blue-500/30 rounded-2xl p-4 text-sm"></div>
-
-        <div class="flex items-start gap-3">
-          <input type="checkbox" id="terms" required class="mt-1 w-5 h-5 accent-blue-600">
-          <label for="terms" class="text-sm text-slate-300">I agree to receive updates from #POMAN and support the movement for an Authentic Nigeria.</label>
+        <!-- MEMBERSHIP TIER -->
+        <div>
+          <label class="block font-semibold mb-3">Which tier are you choosing? *</label>
+          <select 
+            name="membership_tier"
+            required 
+            class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          >
+            <option value="">Select a tier...</option>
+            <option value="Supporter (Free)">Supporter (Free)</option>
+            <option value="Active Member (₦25,000/year)">Active Member (₦25,000/year)</option>
+            <option value="Ambassador (₦60,000/year)">Ambassador (₦60,000/year)</option>
+            <option value="Founder Member (Limited)">Founder Member (Limited)</option>
+          </select>
         </div>
 
-       <!-- Hidden fields - So you get notification when someone joins -->
-        <input type="hidden" name="_subject" value="New #POMAN Member Joined!">
-        <input type="hidden" name="_next" value="https://Anahjoe.github.io/poman-membership">
-        <input type="hidden" name="_captcha" value="false">
+        <!-- ADDITIONAL MESSAGE (OPTIONAL) -->
+        <div>
+          <label class="block font-semibold mb-2">Message (Optional)</label>
+          <textarea 
+            name="message"
+            class="w-full bg-slate-700 text-white px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+            placeholder="Tell us why you're joining #POMAN..."
+            rows="4"
+          ></textarea>
+        </div>
 
-        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 font-bold py-5 rounded-2xl text-lg flex items-center justify-center gap-3 transition-all">
-          Join #POMAN Now <i class="fa-solid fa-heart"></i>
+        <!-- TERMS -->
+        <div class="flex items-start gap-3">
+          <input 
+            type="checkbox" 
+            id="terms" 
+            name="terms"
+            required 
+          />
+          <label for="terms" class="text-slate-300 text-sm">I agree to join #POMAN and receive updates</label>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button 
+          type="submit" 
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition"
+        >
+          Join #POMAN Now
         </button>
       </form>
     </div>
   </div>
 
-  <!-- Footer CTA & Footer (shortened for mobile) -->
-  <div class="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border-y border-blue-500/30 py-16 px-4 text-center">
-    <h2 class="text-4xl font-bold mb-6">Your Nation. Your Power. Your Moment.</h2>
-    <button onclick="document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' })" 
-            class="bg-white text-slate-900 font-bold px-10 py-4 rounded-2xl text-lg hover:bg-slate-100">
-      Start Your Journey →
-    </button>
-  </div>
-
-  <footer class="bg-slate-950 py-12 px-4 border-t border-slate-800 text-center text-slate-500 text-sm">
-    <p>&copy; 2026 #POMAN - Peter Obi's Movement for an Authentic Nation</p>
-    <p class="mt-2">Building the Nigeria we deserve, together. 🇳🇬</p>
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-8 px-4 text-center text-slate-400 text-sm">
+    <p>&copy; 2024 #POMAN - Peter Obi's Movement for an Authentic Nation</p>
   </footer>
 
-<script>
+  <!-- JAVASCRIPT -->
+  <script>
     const tiers = [
       { 
         id: 'supporter', 
@@ -184,11 +228,11 @@
         return;
       }
       
-      container.innerHTML = ''; // Clear existing content
+      container.innerHTML = '';
       
       tiers.forEach(tier => {
         const div = document.createElement('div');
-        div.className = 'tier-card bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6';
+        div.className = 'tier-card bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-xl p-6 cursor-pointer';
         
         const benefitsHTML = tier.benefits
           .map(b => `<li class="flex items-start gap-2 text-sm"><span class="text-green-400 font-bold">✓</span><span>${b}</span></li>`)
@@ -202,7 +246,7 @@
           <ul class="space-y-2 mb-8">
             ${benefitsHTML}
           </ul>
-          <button onclick="selectTier('${tier.id}')" class="w-full bg-white text-slate-900 font-bold py-3 rounded-lg hover:bg-slate-100 transition">
+          <button onclick="selectTier('${tier.id}')" type="button" class="w-full bg-white text-slate-900 font-bold py-3 rounded-lg hover:bg-slate-100 transition">
             Choose ${tier.name}
           </button>
         `;
@@ -214,7 +258,6 @@
     }
 
     window.selectTier = function(id) {
-      console.log('Selected tier:', id);
       const tier = tiers.find(t => t.id === id);
       
       if (!tier) {
@@ -222,53 +265,54 @@
         return;
       }
       
+      // Update the form's tier field
+      const tierSelect = document.querySelector('select[name="membership_tier"]');
+      if (tierSelect) {
+        // Map tier ID to the option value
+        const tierNames = {
+          'supporter': 'Supporter (Free)',
+          'active': 'Active Member (₦25,000/year)',
+          'ambassador': 'Ambassador (₦60,000/year)',
+          'founder': 'Founder Member (Limited)'
+        };
+        tierSelect.value = tierNames[id];
+      }
+      
+      // Show selected tier display
       const display = document.getElementById('selected-tier-display');
       if (display) {
         display.classList.remove('hidden');
         display.innerHTML = `<strong class="text-blue-300">Selected:</strong> <span class="text-white">${tier.name}</span> — <span class="text-green-400">${tier.price}</span>`;
       }
       
+      // Scroll to form
       const form = document.getElementById('signup-form');
       if (form) {
         form.scrollIntoView({ behavior: 'smooth' });
       }
     };
 
-    // Form submission handler
+    // Form submission
     const form = document.getElementById('form');
     if (form) {
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        console.log('Form submitted!');
-        
-        form.classList.add('hidden');
-        
-        const success = document.getElementById('success');
-        if (success) {
-          success.classList.remove('hidden');
-        }
-        
+        // Let Formspree handle the submission
+        // Just show success message after a delay
         setTimeout(() => {
-          // In production, you'd save to database here
-          alert('Welcome to #POMAN! Check your email for next steps.');
-          location.reload();
-        }, 3000);
+          document.getElementById('form').classList.add('hidden');
+          document.getElementById('success').classList.remove('hidden');
+          
+          setTimeout(() => {
+            location.reload();
+          }, 4000);
+        }, 1000);
       });
     }
 
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('Page loaded - rendering tiers...');
       renderTiers();
     });
-    
-    // Also try immediately in case DOM is ready
-    if (document.readyState === 'loading') {
-      console.log('Document still loading...');
-    } else {
-      console.log('Document ready - rendering now...');
-      renderTiers();
-    }
   </script>
 
 </body>
