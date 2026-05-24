@@ -140,36 +140,16 @@
     <p class="mt-2">Building the Nigeria we deserve, together. 🇳🇬</p>
   </footer>
 
- <script>
+<script>
     const tiers = [
-      { 
-        id: 'supporter', 
-        name: 'Supporter', 
-        price: 'Free', 
-        icon: '🌱', 
-        benefits: ['Weekly updates', 'Community access', 'Share content', 'Join events', 'Digital badge'] 
-      },
-      { 
-        id: 'active', 
-        name: 'Active Member', 
-        price: '₦25,000 / year', 
-        icon: '⭐', 
-        benefits: ['Vote on decisions', 'Exclusive content', 'Member webinars', 'Directory listing', 'Recognition'] 
-      },
-      { 
-        id: 'ambassador', 
-        name: 'Ambassador', 
-        price: '₦60,000 / year', 
-        icon: '🎤', 
-        benefits: ['Speaking opportunities', 'Leadership role', 'Content collaboration', 'Media features', 'Exclusive events'] 
-      },
-      { 
-        id: 'founder', 
-        name: 'Founder Member', 
-        price: 'Limited', 
-        icon: '👑', 
-        benefits: ['Lifetime benefits', 'Founder badge', 'VIP treatment', 'Historical recognition'] 
-      }
+      { id: 'supporter', name: 'Supporter', price: 'Free', icon: '🌱', 
+        benefits: ['Weekly updates', 'Community access', 'Share content', 'Join events', 'Digital badge'] },
+      { id: 'active', name: 'Active Member', price: '₦25,000 / year', icon: '⭐', 
+        benefits: ['Vote on decisions', 'Exclusive content', 'Member webinars', 'Directory listing', 'Recognition'] },
+      { id: 'ambassador', name: 'Ambassador', price: '₦60,000 / year', icon: '🎤', 
+        benefits: ['Speaking opportunities', 'Leadership role', 'Content collaboration', 'Media features', 'Exclusive events'] },
+      { id: 'founder', name: 'Founder Member', price: 'Limited', icon: '👑', 
+        benefits: ['Lifetime benefits', 'Founder badge', 'VIP treatment', 'Historical status'] }
     ];
 
     function renderTiers() {
@@ -178,7 +158,6 @@
       tiers.forEach(tier => {
         const div = document.createElement('div');
         div.className = `tier-card bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 hover:border-blue-500 rounded-3xl p-8 cursor-pointer`;
-        
         div.innerHTML = `
           <div class="text-6xl mb-4">${tier.icon}</div>
           <h3 class="text-2xl font-bold mb-1">${tier.name}</h3>
@@ -195,9 +174,9 @@
     }
 
     window.selectTier = function(id) {
-      document.getElementById('selected-tier-display').classList.remove('hidden');
       const tier = tiers.find(t => t.id === id);
-      document.getElementById('selected-tier-display').innerHTML = `<strong>Selected Tier:</strong> ${tier.name} — ${tier.price}`;
+      document.getElementById('selected-tier-display').classList.remove('hidden');
+      document.getElementById('selected-tier-display').innerHTML = `<strong>Selected:</strong> ${tier.name} — ${tier.price}`;
       document.getElementById('signup-form').scrollIntoView({ behavior: 'smooth' });
     };
 
@@ -210,3 +189,5 @@
 
     renderTiers();
   </script>
+</body>
+</html>
